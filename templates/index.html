@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <header>
+                <h1>Movie Recommendation System</h1>
+                <h2>Elaborated by: Virgilio Madrid | Data Scientist </h2>
+                <h2>E-Mail: virgiliomadrid1994@gmail.com</h2>
+                <p class="subtitle">Data Analysis | ML | Python | SQL | Backend | Frontend </p>
+                <a href="https://www.linkedin.com/in/vamadrid" target="_blank" class="linkedin-button">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://api.whatsapp.com/send?phone=50431755652&text=" target="_blank" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </header>
+            <div class="profile_img"></div>
+            <div class="logo_img"></div>
+            <div class="search-container">
+                <form method="POST" id="movie-form">
+                    <input type="text" id="movie-input" name="movie_title" placeholder="Enter the movie title and select the movie from the list" required>
+                    <input type="submit" value="Search">
+                </form>
+                <div id="autocomplete-results"></div>
+            </div>
+            
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+            {% if recommendations %}
+                <div class="recommendations">
+                    <h2>Recomendations for: {{ recommendations[0]['title'] }}</h2>
+                    <ul>
+                    {% for movie in recommendations %}
+                        <li>{{ movie['title'] }} -Similarity rating:  {{ movie['score'] }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
