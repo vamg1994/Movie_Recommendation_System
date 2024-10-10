@@ -3,20 +3,20 @@ from flask import Flask, render_template, request
 import pandas as pd
 from flask import jsonify
 import re
-#import os
+import os
 
 # Initialize the Flask application
 app = Flask(__name__, static_folder='static')
 
 # Get the absolute path of the current directory
-#current_dir = os.path.dirname(os.path.abspath(__file__))
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Build the absolute paths to the CSV files
-#movies_path = os.path.join(current_dir, "data", "movies.csv")
-#ratings_path = os.path.join(current_dir, "data", "ratings.csv")
+movies_path = os.path.join(current_dir, "data", "movies_orig.csv")
+ratings_path = os.path.join(current_dir, "data", "ratings_orig.csv")
 
-#movies_path='data/movies.csv'
-#ratings_path='data/ratings.csv'
+#movies_path = "data/movies.csv"
+#ratings_path = "data/ratings.csv"
 
 # load data
 df_movies = pd.read_csv(movies_path)
@@ -116,4 +116,4 @@ def search():
 
 # Run the app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run()
