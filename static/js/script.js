@@ -64,35 +64,3 @@ movieForm.addEventListener('submit', (e) => {
     }
 });
 
-// Function to create stars
-function createStars() {
-    const starsContainer = document.createElement('div');
-    starsContainer.classList.add('stars');
-    document.body.insertBefore(starsContainer, document.body.firstChild);
-
-    const numberOfStars = 1000;
-
-    for (let i = 0; i < numberOfStars; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        
-        // Posición aleatoria
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        
-        // Tamaño aleatorio
-        const size = Math.random() * 5 + 1; // Entre 1 y 4 píxeles
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        
-        // Duración y retraso de la animación aleatorios
-        const duration = Math.random() * 3 + 2; // Entre 2 y 5 segundos
-        star.style.animationDuration = `${duration}s`;
-        star.style.animationDelay = `${Math.random() * 5}s`;
-        
-        starsContainer.appendChild(star);
-    }
-}
-
-// Call the function to create stars when the page loads
-window.addEventListener('load', createStars);
