@@ -12,8 +12,8 @@ app = Flask(__name__, static_folder='static')
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Build the absolute paths to the CSV files
-movies_path = os.path.join(current_dir, "data", "movies_orig.csv")
-ratings_path = os.path.join(current_dir, "data", "ratings_orig.csv")
+movies_path = os.path.join(current_dir, "data", "movies.csv")
+ratings_path = os.path.join(current_dir, "data", "ratings.csv")
 
 #movies_path = "data/movies.csv"
 #ratings_path = "data/ratings.csv"
