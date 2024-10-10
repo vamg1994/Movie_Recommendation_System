@@ -1,59 +1,31 @@
+/* Root variables for consistent color scheme */
 :root {
     --color-neon-blue: #64dde6f8;
     --color-neon-orange: #f3853c;
+    --color-neon-red: #cf4633ce;
     --color-dark-blue: #334558e7;
     --color-light-gray: #a0a0a0;
-    --color-light-blue: #64dde6f8;
-    --color-light-orange: #f3853c;
-    --color-light-yellow: #f3d13c;
     --color-light-green: #a7e614;
-    --color-neon-red: #f31c3c;
-    --color-neon-purple: #9d00ff;
     --color-white: #ffffff;
 }
 
+/* Global styles */
 body {
     font-family: 'Orbitron', sans-serif;
     color: var(--color-light-gray);
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-image: url('/static/images/wp.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background: url('/static/images/wp.jpg') center/cover no-repeat fixed;
     min-height: 100vh;
-    position: relative;
 }
 
+/* Layout components */
 .overlay {
-    background-color: var(--color-dark-blue);
+    background-color: rgba(67, 81, 95, 0.932);
     min-height: 100vh;
     position: relative;
     z-index: 1;
-}
-
-.stars {
-    position: fixed;
-    top: 100;
-    left: 100;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.star {
-    position: absolute;
-    background-color: #f0eeec;
-    border-radius: 100%;
-    animation: twinkle ease-in-out infinite;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
 }
 
 .container {
@@ -64,125 +36,101 @@ body {
     z-index: 2;
 }
 
+/* Header styles */
 header {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 3rem;
-    position: relative;
-    /*background-image: url('/static/images/b.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;*/
-    height: auto;
+    padding: 1rem;
 }
 
-h1 {
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--color-neon-blue);
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+.header-left {
+    display: flex;
+    align-items: center;
 }
-h2 {
-    font-size: 1.5rem;
-    text-transform: propercase;
+
+.logo_img {
+    background: url('/static/images/l.png') no-repeat center/cover;
+    width: 150px;
+    height: 75px;
+    margin-right: 2rem;
+}
+
+.header-text h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--color-white);
     margin-bottom: 0.5rem;
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
 
+.header-text h2 {
+    font-size: 1.2rem;
+    color: var(--color-neon-blue);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(88, 214, 30, 0.89);
+}
+
+.header-text h3 {
+    font-size: 1.2rem;
+    color: var(--color-neon-red);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(235, 34, 7, 0.7);
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--color-neon-orange);
-    text-transform: propercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 5px rgba(255, 102, 0, 0.596);
+    text-shadow: 0 0 15px rgba(226, 206, 28, 0.822);
 }
 
-.linkedin-button {
-    position: absolute;
-    top: 140px;
-    right: 10px;
-    background-color: var(--color-light-orange);
-    color: var(--color-dark-blue);
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 16px;
+.header-right {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 0 10px rgba(194, 96, 5, 0.7);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.linkedin-button::before {
-    content: 'LinkedIn';
-}
-
-.linkedin-button:hover {
-    background-color: var(--color-light-green);
-    box-shadow: 0 0 10px rgba(4, 212, 171, 0.733);
-}
-
-.whatsapp-button {
-    position: absolute;
-    top: 190px;
-    right: 0px;
-    background-color: var(--color-light-orange);
-    color: var(--color-dark-blue);
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 0 10px rgba(194, 96, 5, 0.7);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.whatsapp-button::before {
-    content: 'Whatsapp';
-}
-
-.whatsapp-button:hover {
-    background-color: var(--color-light-green);
-    box-shadow: 0 0 10px rgba(4, 212, 171, 0.733);
 }
 
 .profile_img {
-    background-image: url('/static/images/v.png');
-    background-repeat: no-repeat, repeat;
-    position: absolute;
-    background-size: cover; /* Resize the background image to cover the entire container */
-    top: 95px;
-    right: 40px;
-    height: 100px;
+    background: url('/static/images/v.png') no-repeat center/cover;
     width: 100px;
-}
-
-.logo_img {
-    background-image: url('/static/images/l.png');
-    background-repeat: no-repeat, repeat;
-    position: absolute;
-    background-size: cover; /* Resize the background image to cover the entire container */
-    top: 105px;
-    right: 1100px;
     height: 100px;
-    width: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
 }
 
+/* Social buttons */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.social-button {
+    background-color: var(--color-neon-orange);
+    color: var(--color-dark-blue);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(194, 96, 5, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-button:hover {
+    background-color: var(--color-light-green);
+    box-shadow: 0 0 10px rgba(4, 212, 171, 0.733);
+}
+
+/* Search container */
 .search-container {
     display: flex;
     flex-direction: column;
@@ -227,6 +175,7 @@ input[type="submit"]:hover {
     box-shadow: 0 0 15px rgba(255, 102, 0, 0.7);
 }
 
+/* Recommendations section */
 .recommendations {
     background-color: rgba(255, 255, 255, 0.05);
     padding: 2rem;
@@ -253,8 +202,6 @@ li {
     padding: 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s;
-    align-items: center;
-    align-content: center;
 }
 
 li:hover {
@@ -263,6 +210,7 @@ li:hover {
     text-shadow: 0 0 5px rgba(0, 240, 255, 0.7);
 }
 
+/* Error message */
 .error {
     color: var(--color-neon-orange);
     text-align: center;
@@ -275,6 +223,7 @@ li:hover {
     border: 1px solid var(--color-neon-orange);
 }
 
+/* Autocomplete results */
 #autocomplete-results {
     width: 60%;
     background-color: rgba(255, 255, 255, 0.05);
@@ -283,9 +232,6 @@ li:hover {
     overflow-y: auto;
     z-index: 1000;
     border-radius: 5px;
-    align-items: center;
-    align-content: center;  
-
 }
 
 #autocomplete-results div {
